@@ -1,90 +1,77 @@
 <script>
+import Modal from "./Modal.vue";
+
 export default {
   data() {
     return {
       showDetails: false,
     };
   },
+  components: {
+    Modal,
+  },
   methods: {
     detailsEnter() {
       this.showDetails = true;
-      this.$refs.circle.classList.add("w-[120rem]", "h-[120rem]");
     },
     detailsLeave() {
       this.showDetails = false;
-      this.$refs.circle.classList.remove("w-[120rem]", "h-[120rem]");
     },
   },
 };
 </script>
 
 <template>
-  <div class="relative top-96 left-1/2 w-full">
+  <div class="relative top-96 left-1/2 inline-block">
     <transition
       name="fade-down"
-      appear-active-class="-translate-y-20 opacity-0"
+      appear-from-class="-translate-y-20 opacity-0"
       appear
     >
       <h1
-        class="font-didot text-[15rem] font-light transition-all ease-in-out duration-1000"
+        class="font-didot text-[15rem] font-light transition-all ease-in-out duration-1000 overflow-hidden"
       >
         Explore
       </h1>
     </transition>
     <transition
       name="fade-right"
-      appear-active-class="-translate-x-20 opacity-0"
+      appear-from-class="-translate-x-20 opacity-0"
       appear
     >
       <span
         class="font-lato text-2xl font-light relative -top-16 flex items-center transition-all ease-in-out delay-500 duration-500"
       >
         <img
-          class="float-left mr-6"
+          class="float-left mr-6 relative"
           src="../Coding Challenge Assets/Plus.svg"
           @click="detailsEnter"
         />
         More Details
       </span>
     </transition>
-    <div
-      class="bg-rose-600 rounded-full transition-all duration-1000 absolute bottom-0 -translate-x-1/2 translate-y-1/2"
-      ref="circle"
-    >
-      <div
-        class="bg-white w-[580px] h-[690px] -translate-y-full -translate-x-10 flex flex-col items-end transition-all duration-500 absolute z-20"
-        v-show="showDetails"
-      >
-        <button
-          class="w-12 flex items-center text-center text-6xl font-light text-primary-brown text-black"
-          @click="detailsLeave"
-        >
-          &times;
-        </button>
-        <div class="my-6 mx-20">
-          <h2 class="text-primary-brown text-6xl font-didot font-light mb-6">
-            Explore
-          </h2>
-          <p class="font-lato text-gray-900 text-base">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab illo inventore veritatis et quasi architecto beatae vitae
-            dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-            aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-            eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-            qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-            sed quia non numquam eius modi tempora incidunt ut labore et dolore
-            magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-            nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut
-            aliquid ex ea commodi consequatur?
-          </p>
-          <button
-            class="font-lato font-light text-lg inline-block w-60 h-14 mt-12 bg-gradient-to-r from-primary-brown to-secondary-brown"
-          >
-            READ MORE
-          </button>
-        </div>
-      </div>
-    </div>
+    <Modal
+      @exit="detailsLeave"
+      class="popup"
+      :class="{ active: showDetails }"
+      :show="showDetails"
+    />
   </div>
 </template>
+
+<style>
+.popup {
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.popup.active {
+  width: 580px;
+  height: 690px;
+  border-radius: 0%;
+  opacity: 1;
+}
+</style>
