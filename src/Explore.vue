@@ -29,7 +29,8 @@ export default {
       appear
     >
       <h1
-        class="font-didot text-[15rem] font-light transition-all ease-in-out duration-1000 overflow-hidden"
+        class="font-didot text-[15rem] font-light overflow-hidden explore"
+        :class="{ hide: showDetails }"
       >
         Explore
       </h1>
@@ -52,15 +53,15 @@ export default {
     </transition>
     <Modal
       @exit="detailsLeave"
-      class="popup"
-      :class="{ active: showDetails }"
+      class="modal"
+      :class="{ show: showDetails }"
       :show="showDetails"
     />
   </div>
 </template>
 
 <style>
-.popup {
+.modal {
   width: 0;
   height: 0;
   border-radius: 100%;
@@ -68,10 +69,23 @@ export default {
   transition: all 0.3s ease-in-out;
 }
 
-.popup.active {
+.modal.show {
   width: 580px;
   height: 690px;
   border-radius: 0%;
   opacity: 1;
+}
+
+.explore {
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out,
+    background-position 0.3s ease-in-out;
+  background: linear-gradient(to left, white 34%, transparent 65%) right;
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.explore.hide {
+  background-position: left;
 }
 </style>
