@@ -22,14 +22,14 @@ export default {
 </script>
 
 <template>
-  <div class="relative top-96 left-1/2 inline-block">
+  <div class="relative top-[32rem] left-1/2 inline-block pl-4 md:pl-0">
     <transition
       name="fade-down"
       appear-from-class="-translate-y-20 opacity-0"
       appear
     >
       <h1
-        class="font-didot text-[15rem] font-light overflow-hidden explore"
+        class="font-didot text-8xl md:text-[15rem] font-light explore h-32 md:h-72"
         :class="{ hide: showDetails }"
       >
         Explore
@@ -41,7 +41,7 @@ export default {
       appear
     >
       <span
-        class="font-lato text-2xl font-light relative -top-16 flex items-center transition-all ease-in-out delay-500 duration-500"
+        class="font-lato text-2xl font-light relative -top-4 md:-top-12 flex items-center transition-all ease-in-out delay-500 duration-500"
       >
         <img
           class="float-left mr-6 relative hover:opacity-75 transition-opacity duration-200"
@@ -70,16 +70,27 @@ export default {
   transition: all 0.3s 0.3s ease-in-out;
 }
 
-.modal.show {
-  width: 580px;
-  height: 690px;
-  border-radius: 0%;
-  opacity: 1;
+@media (min-width: 768px) {
+  .modal.show {
+    width: 580px;
+    height: 690px;
+    border-radius: 0%;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal.show {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0%;
+    opacity: 1;
+  }
 }
 
 .explore {
   transition: opacity 1s ease-in-out, transform 1s ease-in-out,
-    background-position 0.3s 0.3s ease-in-out;
+    background-position 0.5s 0.3s ease-in-out;
   background: linear-gradient(to left, white 34%, transparent 65%) right;
   background-size: 300% 100%;
   background-clip: text;

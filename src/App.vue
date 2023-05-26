@@ -14,7 +14,7 @@ export default {
 
 <template>
   <div class="flex h-screen justify-items-end text-white">
-    <div class="bg-primary-brown w-[30rem] z-10">
+    <div class="bg-primary-brown w-0 md:w-[30rem] z-10">
       <Explore />
     </div>
     <transition name="fade" enter-active-class="opacity-0">

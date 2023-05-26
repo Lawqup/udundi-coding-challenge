@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div
-    class="absolute bg-white -translate-y-full -translate-x-10 overflow-hidden"
+    class="bg-white left-1/2 top-1/2 fixed -translate-y-1/2 -translate-x-1/2 md:left-auto md:top-auto md:-translate-y-full md:-translate-x-10 overflow-hidden"
   >
     <transition enter-from-class="opacity-0 -translate-x-10">
       <div
@@ -24,11 +24,13 @@ export default {
         >
           &times;
         </button>
-        <div class="my-6 mx-20">
+        <div
+          class="my-6 mx-8 md:mx-20 flex flex-col items-center md:flex-none md:items-start"
+        >
           <h2 class="text-primary-brown text-6xl font-didot font-light mb-6">
             Explore
           </h2>
-          <p class="font-lato text-gray-900 text-base">
+          <p class="font-lato text-gray-900 text-[2vh] md:text-base">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem
             accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
             quae ab illo inventore veritatis et quasi architecto beatae vitae
