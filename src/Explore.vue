@@ -44,9 +44,10 @@ export default {
         class="font-lato text-2xl font-light relative -top-16 flex items-center transition-all ease-in-out delay-500 duration-500"
       >
         <img
-          class="float-left mr-6 relative"
+          class="float-left mr-6 relative hover:opacity-75 transition-opacity duration-200"
           src="../Coding Challenge Assets/Plus.svg"
           @click="detailsEnter"
+          :class="{ compress: showDetails }"
         />
         More Details
       </span>
@@ -66,7 +67,7 @@ export default {
   height: 0;
   border-radius: 100%;
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s 0.3s ease-in-out;
 }
 
 .modal.show {
@@ -78,7 +79,7 @@ export default {
 
 .explore {
   transition: opacity 1s ease-in-out, transform 1s ease-in-out,
-    background-position 0.3s ease-in-out;
+    background-position 0.3s 0.3s ease-in-out;
   background: linear-gradient(to left, white 34%, transparent 65%) right;
   background-size: 300% 100%;
   background-clip: text;
@@ -87,5 +88,22 @@ export default {
 
 .explore.hide {
   background-position: left;
+}
+
+@keyframes compressAnim {
+  0% {
+    transform: scale(100%);
+  }
+  50% {
+    transform: scale(60%);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+
+.compress {
+  animation-name: compressAnim;
+  animation-duration: 0.3s;
 }
 </style>
