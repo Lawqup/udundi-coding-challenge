@@ -45,7 +45,7 @@ export default {
       >
         <img
           class="float-left mr-6 relative hover:opacity-75 transition-opacity duration-200"
-          src="../Coding Challenge Assets/Plus.svg"
+          src="@/Coding_Challenge_Assets/Plus.svg"
           @click="detailsEnter"
           :class="{ compress: showDetails }"
         />
@@ -91,7 +91,7 @@ export default {
 .explore {
   transition: opacity 1s ease-in-out, transform 1s ease-in-out,
     background-position 0.5s 0.3s ease-in-out;
-  background: linear-gradient(to left, white 34%, transparent 65%) right;
+  background: linear-gradient(to left, white 35%, transparent 65%) right;
   background-size: 300% 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
