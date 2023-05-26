@@ -11,7 +11,7 @@ export default {
 
 <template>
   <div
-    class="bg-white left-1/2 top-1/2 fixed -translate-y-1/2 -translate-x-1/2 md:left-auto md:top-auto md:-translate-y-full md:-translate-x-10 overflow-hidden"
+    class="bg-white left-1/2 top-1/2 fixed md:left-auto md:top-auto overflow-hidden"
   >
     <transition enter-from-class="opacity-0 -translate-x-10">
       <div

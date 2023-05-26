@@ -68,6 +68,7 @@ export default {
   border-radius: 100%;
   opacity: 0;
   transition: all 0.3s 0.3s ease-in-out;
+  transform: translate(1.4rem, -4.2rem);
 }
 
 @media (min-width: 768px) {
@@ -76,6 +77,7 @@ export default {
     height: 690px;
     border-radius: 0%;
     opacity: 1;
+    transform: translate(-2.5rem, -100%);
   }
 }
 
@@ -85,6 +87,7 @@ export default {
     height: 100vh;
     border-radius: 0%;
     opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
 
